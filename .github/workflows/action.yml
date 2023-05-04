@@ -1,0 +1,19 @@
+name: Clone hidden-public repository and print README
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  clone-and-print:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Clone hidden-public
+      run: |
+        git clone https://github.com/org-1394820934/hidden-public.git
+        cd hidden-public
+        cat README.md
